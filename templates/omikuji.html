@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charest="UTF-8">
+    <title>今日のおみくじ</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+    <h1>🌸今日のおみくじ🌸</h1>
+    {% if not result %}
+    <form action="/omikuji">
+        <button>おみくじを引く</button>
+    </form>
+    {% endif %}
+
+    {% if result %}
+           <div class="result-card {% if result == '大吉' %}great-result{% endif %}">
+               <h2>
+                    {% if result == "大吉" %}
+                        ✨🌸大吉🌸✨
+                    {% else %}    
+                        運勢：{{ result }}
+                    {% endif%}
+                </h2>
+
+               <p class="score">運勢ポイント：{{score}}点</p>
+
+               <div class="fortune-items">
+                   <p>💗恋愛：{{ love }}</p>
+                   <p>💼仕事：{{ work }}</p>
+                   <p>💰金運：{{ money }}</p>
+                   <p>🍀健康：{{ health }}</p>
+               </div>
+
+               <form action="/omikuji" class="again-form">
+                    <button type="submit">もう一回引く</button>
+               </form>
+
+            </div>
+    {% endif %}
+</body>
+</html>
