@@ -104,3 +104,23 @@ button{
         transform: scale(1);
     }
 }
+
+@media (max-width: 600px){
+    body{
+        font-size: 18px;
+    }
+    h1{
+        font-size: 32px;
+    }
+    .result-card{
+        max-width: 90%;
+        padding: 24px;
+    }
+    .fortune-items p{
+        font-size: 18px;
+    }
+    button{
+        font-size: 18px;
+        padding: 14px 28px;
+    }
+}
